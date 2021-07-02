@@ -21,6 +21,8 @@ RUN apt-get install -y --no-install-recommends\
                     tar \
                     googletest \
                     google-mock \
+                    libblas-dev \
+                    liblapack-dev \
                     ca-certificates && \
     apt-get autoclean && \
     apt-get autoremove && \
