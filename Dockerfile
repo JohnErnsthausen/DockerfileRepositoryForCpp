@@ -29,5 +29,8 @@ RUN apt-get install -y --no-install-recommends\
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN cd /usr/src/gtest; sudo cmake CMakeLists.txt; sudo make; sudo cp *.a /usr/lib
+RUN cd /usr/src/gtest
+RUN sudo cmake CMakeLists.txt
+RUN sudo make
+RUN sudo cp *.a /usr/lib
 
