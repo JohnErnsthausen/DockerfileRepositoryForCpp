@@ -29,9 +29,11 @@ RUN apt-get install -y --no-install-recommends\
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN cd /usr/src/gtest
+WORKDIR /usr/src/gtest
 RUN ls -la
-RUN mkdir build; cd build; cmake ..
+RUN mkdir build
+WORKDIR /usr/src/gtest/build
+RUN cmake ..
 RUN make
 RUN make install
 
