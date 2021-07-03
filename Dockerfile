@@ -30,12 +30,12 @@ RUN apt-get install -y --no-install-recommends\
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/gtest
-RUN ls -la
+RUN ls -la /usr/src
 RUN mkdir build
 WORKDIR /usr/src/gtest/build
 RUN cmake -DBUILD_SHARED_LIBS=ON -Dgtest_build_samples=ON -G"Unix Makefiles" ..
 RUN make
-RUN ls -la ../include
 RUN cp -r ../include/gtest /usr/local/include/
-RUN cp lib*.so /usr/local/lib
+RUN ls -la 
+RUN cp lib/lib*.so /usr/local/lib
 
