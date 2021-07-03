@@ -32,7 +32,7 @@ RUN apt-get install -y --no-install-recommends\
 RUN ls -la /usr/include/gmock
 RUN ls -la /usr/include/gtest
 
-RUN ls -la /usr/lib/
+RUN ls -laR /usr/lib/
 RUN cp /usr/lib/aarch64-linux-gnu/lib*.a /usr/local/lib
 
 RUN mkdir /usr/local/include/gtest
