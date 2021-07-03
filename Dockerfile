@@ -19,8 +19,8 @@ RUN apt-get install -y --no-install-recommends\
                     cmake \
                     unzip \
                     tar \
-                    googletest \
-                    google-mock \
+                    libgtest-dev \
+                    libgmock-dev \
                     libblas-dev \
                     liblapack-dev \
                     ca-certificates && \
@@ -28,3 +28,6 @@ RUN apt-get install -y --no-install-recommends\
     apt-get autoremove && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+RUN cd /usr/src/gtest; sudo cmake CMakeLists.txt; sudo make; sudo cp *.a /usr/lib
+
