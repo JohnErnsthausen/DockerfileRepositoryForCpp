@@ -29,8 +29,8 @@ RUN apt-get install -y --no-install-recommends\
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN ls -la /usr/src
 WORKDIR /usr/src/gmock
-RUN ls -la
 RUN mkdir build
 WORKDIR /usr/src/gmock/build
 RUN cmake -DBUILD_SHARED_LIBS=ON -Dgmock_build_samples=ON -G"Unix Makefiles" ..
