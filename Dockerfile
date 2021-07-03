@@ -30,7 +30,8 @@ RUN apt-get install -y --no-install-recommends\
     rm -rf /var/lib/apt/lists/*
 
 RUN cd /usr/src/gtest
-RUN cmake CMakeLists.txt
+RUN ls -la
+RUN mkdir build; cd build; cmake ..
 RUN make
 RUN make install
 
