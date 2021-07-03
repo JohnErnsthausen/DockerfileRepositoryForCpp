@@ -35,5 +35,5 @@ RUN mkdir build
 WORKDIR /usr/src/gtest/build
 RUN cmake ..
 RUN make
-RUN make install
+RUN cp googlemock/*.a googlemock/gtest/*.a /usr/lib
 
