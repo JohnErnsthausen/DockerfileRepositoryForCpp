@@ -20,7 +20,7 @@ RUN apt-get install -y --no-install-recommends\
                     unzip \
                     tar \
                     libgtest-dev \
-                    libgmock-dev \
+                    google-mock \
                     libblas-dev \
                     liblapack-dev \
                     ca-certificates && \
