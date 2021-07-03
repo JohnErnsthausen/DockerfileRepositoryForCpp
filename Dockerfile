@@ -30,12 +30,28 @@ RUN apt-get install -y --no-install-recommends\
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/gtest
-RUN ls -la /usr/src
 RUN mkdir build
 WORKDIR /usr/src/gtest/build
 RUN cmake -DBUILD_SHARED_LIBS=ON -Dgtest_build_samples=ON -G"Unix Makefiles" ..
 RUN make
 RUN cp -r ../include/gtest /usr/local/include/
-RUN ls -la 
+RUN ls -la lib
 RUN cp lib/lib*.so /usr/local/lib
+RUN cmake ..
+RUN make
+RUN ls -la lib
+RUN cp lib/lib*.a /usr/local/lib
+
+WORKDIR /usr/src/gmock
+RUN mkdir build
+WORKDIR /usr/src/gmock/build
+RUN cmake -DBUILD_SHARED_LIBS=ON -Dgtest_build_samples=ON -G"Unix Makefiles" ..
+RUN make
+RUN cp -r ../include/gmock /usr/local/include/
+RUN ls -la lib
+RUN cp lib/lib*.so /usr/local/lib
+RUN cmake ..
+RUN make
+RUN ls -la lib
+RUN cp lib/lib*.a /usr/local/lib
 
