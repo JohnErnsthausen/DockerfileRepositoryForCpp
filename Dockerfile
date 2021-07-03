@@ -49,7 +49,7 @@ RUN cp lib/lib*.a /usr/local/lib
 WORKDIR /usr/src/gmock
 RUN mkdir build
 WORKDIR /usr/src/gmock/build
-RUN cmake -DBUILD_SHARED_LIBS=ON -Dgtest_build_samples=ON -G"Unix Makefiles" ..
+RUN cmake -DBUILD_SHARED_LIBS=ON -Dgmock_build_samples=ON -G"Unix Makefiles" ..
 RUN make
 RUN cp -r ../include/gmock /usr/local/include/
 RUN ls -la lib
