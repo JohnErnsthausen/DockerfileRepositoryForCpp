@@ -29,24 +29,8 @@ RUN apt-get install -y --no-install-recommends\
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-WORKDIR /usr/src/gtest
-RUN mkdir build
-WORKDIR /usr/src/gtest/build
-RUN cmake -DBUILD_SHARED_LIBS=ON -Dgtest_build_samples=ON -G"Unix Makefiles" ..
-RUN make
-RUN cp -r ../include/gtest /usr/local/include/
-RUN ls -la lib
-RUN cp lib/lib*.so /usr/local/lib
-WORKDIR /usr/src/gtest
-RUN rm -rf build
-RUN mkdir build
-WORKDIR /usr/src/gtest/build
-RUN cmake ..
-RUN make
-RUN ls -la lib
-RUN cp lib/lib*.a /usr/local/lib
-
 WORKDIR /usr/src/gmock
+RUN ls -la
 RUN mkdir build
 WORKDIR /usr/src/gmock/build
 RUN cmake -DBUILD_SHARED_LIBS=ON -Dgmock_build_samples=ON -G"Unix Makefiles" ..
@@ -63,3 +47,19 @@ RUN make
 RUN ls -la lib
 RUN cp lib/lib*.a /usr/local/lib
 
+WORKDIR /usr/src/gtest
+RUN mkdir build
+WORKDIR /usr/src/gtest/build
+RUN cmake -DBUILD_SHARED_LIBS=ON -Dgtest_build_samples=ON -G"Unix Makefiles" ..
+RUN make
+RUN cp -r ../include/gtest /usr/local/include/
+RUN ls -la lib
+RUN cp lib/lib*.so /usr/local/lib
+WORKDIR /usr/src/gtest
+RUN rm -rf build
+RUN mkdir build
+WORKDIR /usr/src/gtest/build
+RUN cmake ..
+RUN make
+RUN ls -la lib
+RUN cp lib/lib*.a /usr/local/lib
