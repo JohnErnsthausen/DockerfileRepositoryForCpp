@@ -37,6 +37,10 @@ RUN make
 RUN cp -r ../include/gtest /usr/local/include/
 RUN ls -la lib
 RUN cp lib/lib*.so /usr/local/lib
+WORKDIR /usr/src/gtest
+RUN rm -rf build
+RUN mkdir build
+WORKDIR /usr/src/gtest/build
 RUN cmake ..
 RUN make
 RUN ls -la lib
@@ -50,6 +54,10 @@ RUN make
 RUN cp -r ../include/gmock /usr/local/include/
 RUN ls -la lib
 RUN cp lib/lib*.so /usr/local/lib
+WORKDIR /usr/src/gmock
+RUN rm -rf build
+RUN mkdir build
+WORKDIR /usr/src/gmock/build
 RUN cmake ..
 RUN make
 RUN ls -la lib
