@@ -33,7 +33,9 @@ WORKDIR /usr/src/gtest
 RUN ls -la
 RUN mkdir build
 WORKDIR /usr/src/gtest/build
-RUN cmake ..
+RUN cmake -DBUILD_SHARED_LIBS=ON -Dgtest_build_samples=ON -G"Unix Makefiles" ..
 RUN make
-RUN cp googlemock/*.a googlemock/gtest/*.a /usr/lib
+RUN ls -la ../include
+RUN cp -r ../include/gtest /usr/local/include/
+RUN cp lib*.so /usr/local/lib
 
