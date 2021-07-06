@@ -17,6 +17,10 @@ RUN apt-get install -y --no-install-recommends\
                     clang-10 \
                     build-essential \
                     cmake \
+                    gnupg \
+                    pbuilder \
+                    ubuntu-dev-tools \
+                    apt-file \
                     unzip \
                     tar \
                     libgtest-dev \
