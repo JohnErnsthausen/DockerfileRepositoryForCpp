@@ -17,6 +17,7 @@ RUN apt-get install -y --no-install-recommends\
                     clang-10 \
                     build-essential \
                     cmake \
+                    lcov \
                     gnupg \
                     pbuilder \
                     ubuntu-dev-tools \
